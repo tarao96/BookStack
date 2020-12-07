@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
   end
   
   def create
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
       content3: params[:content3],
       content4: params[:content4],
       content5: params[:content5],
+      review: params[:review],
       user_id: @current_user.id
       )
     if @post.save
@@ -53,6 +55,7 @@ class PostsController < ApplicationController
     @post.content3 = params[:content3]
     @post.content4 = params[:content4]
     @post.content5 = params[:content5]
+    @post.review = params[:review]
     @post.save
     
     redirect_to("/posts/#{@post.id}")

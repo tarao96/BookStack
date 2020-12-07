@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  post "likes/:post_id/create", to: "likes#create"
+  post "likes/:post_id/destroy", to: "likes#destroy"
+  
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
   post '/logout', to: 'users#logout'
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/users/index', to: 'users#index'
   get '/users/:id', to: 'users#show'
+  get '/users/:id/likes', to: 'users#likes'
   
   get '/posts/index', to: 'posts#index'
   get '/posts/new', to: 'posts#new'
