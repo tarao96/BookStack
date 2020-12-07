@@ -1,0 +1,61 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      
+      <div class="post-user-name">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      
+    <div class="title-container">
+      <p>タイトル</p>
+     <div class="book-title-show">
+          <%= @post.content %><br>
+     </div>
+    </div>
+     
+    <div class="heading-container">
+      <p>一言要約</p>
+     <div class="book-heading-show">
+        <%= @post.content2 %>
+     </div>
+    </div>
+     
+    <div class="heading-container-point">
+      <p>Point1</p>
+     <div class="book-point-show">
+        <%= @post.content3 %>
+     </div>
+    </div>
+     
+    <div class="heading-container-point">
+       <p>Point2</p>
+     <div class="book-point-show">
+        <%= @post.content4 %>
+     </div>
+    </div>
+     
+    <div class="heading-container-point">
+        <p>Point3</p>
+     <div class="book-point-show">
+        <%= @post.content5 %>
+     </div>
+    </div>
+     
+     </div>
+     
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+      
+      
+      <% if @post.user_id == @current_user.id %>
+      <div class="post-menus">
+        <%= link_to("編集","/posts/#{@post.id}/edit") %>
+        <%= link_to("削除","/posts/#{@post.id}/destroy",{method: "post"}) %>
+      </div>
+      <% end %>
+      
+      
+    </div>
+  </div>
+</div>

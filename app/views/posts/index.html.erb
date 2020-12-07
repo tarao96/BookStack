@@ -1,0 +1,40 @@
+<div class="main posts-index">
+  <div class="container">
+      
+      <!-- 検索拡張機能 -->
+    <p>検索</p>
+      <%= form_tag("/posts/index", method: :get) do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Search', :name => nil %>
+      <% end %>
+      
+     <%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+      <% @posts.each do |post| %>
+        <div class="posts-index-item">
+          <div class="post-right">
+            <div class="post-user-name">
+              <%= link_to(post.user.name,"/users/#{post.user.id}") %>
+            </div>
+           
+           <div class="title-container">
+             <p>タイトル</p>
+            <div class="book-title-index">
+              <%= link_to(post.content, "/posts/#{post.id}") %><br>
+            </div>
+           </div>
+              
+            <div class="heading-container">
+               <p>一言要約</p>
+              <div class="book-heading-index">
+               <%= post.content2 %>
+              </div>
+            </div>
+             
+          
+             
+          </div>
+        </div>
+      <% end %>
+     <%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  </div>
+</div>

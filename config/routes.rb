@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   
   get '/posts/index', to: 'posts#index'
+  get '/posts/new', to: 'posts#new'
+  post '/posts/create', to: 'posts#create'
+  get '/posts/:id', to: 'posts#show'
+  get '/posts/:id/edit', to: 'posts#edit'
+  post '/posts/:id/update', to: 'posts#update'
+  post '/posts/:id/destroy', to: 'posts#destroy'
+ 
   
-  get root to: 'static_pages#home'
+  get root 'static_pages#home'
   get '/about', to: 'static_pages#about'
 end
