@@ -8,6 +8,10 @@
       <% end %>
     </div>
     
+    <div class="figure-sum-posts">
+      <p>投稿数合計<%= @user.posts.count %>冊</p>
+    </div>
+    
      <ul class="user-tabs">
       <li><%= link_to("投稿","/users/#{@user.id}") %></li>
       <li class="active"><%= link_to("いいね！","/users/#{@user.id}") %></li> 

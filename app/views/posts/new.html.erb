@@ -10,6 +10,10 @@
         <h2>一言要約</h2>
          <textarea name="content2"><%= @post.content2 %></textarea>
          
+         <div class="point-heading">
+            <h2><要点整理></h2>
+         </div>
+         
           <p>Point1</p>
          <textarea name="content3"><%= @post.content3 %></textarea>
          
@@ -19,8 +23,11 @@
            <p>Point3</p>
          <textarea name="content5"><%= @post.content5 %></textarea>
          
-           <p>レビュー</p>
+           <h3>レビュー</h3>
          <textarea name="review"><%= @post.review %></textarea>
+         
+           <h3>私のアクションプラン</h3>
+         <textarea name="actionplan"><%= @post.actionplan %></textarea>
          
           
         <input type="submit" value="投稿">

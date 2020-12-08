@@ -7,14 +7,14 @@
       </div>
       
     <div class="title-container">
-      <p>タイトル</p>
+      <h1>タイトル</h1>
      <div class="book-title-show">
           <%= @post.content %><br>
      </div>
     </div>
      
     <div class="heading-container">
-      <p>一言要約</p>
+      <h2>一言要約</h2>
      <div class="book-heading-show">
         <%= @post.content2 %>
      </div>
@@ -42,9 +42,16 @@
     </div>
     
     <div class="heading-container-point">
-        <p>レビュー</p>
+        <h3>レビュー</h3>
      <div class="book-point-show">
         <%= simple_format(@post.review) %>
+     </div>
+    </div>
+    
+    <div class="heading-container-point">
+        <h3>私のアクションプラン</h3>
+     <div class="book-point-show">
+        <%= simple_format(@post.actionplan) %>
      </div>
     </div>
      

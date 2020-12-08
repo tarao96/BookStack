@@ -13,4 +13,6 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+  
+ 
 end

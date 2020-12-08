@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   
   def ensure_correct_user
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
       content4: params[:content4],
       content5: params[:content5],
       review: params[:review],
+      actionplan: params[:actionplan],
       user_id: @current_user.id
       )
     if @post.save
@@ -56,6 +58,7 @@ class PostsController < ApplicationController
     @post.content4 = params[:content4]
     @post.content5 = params[:content5]
     @post.review = params[:review]
+    @post.actionplan = params[:actionplan]
     @post.save
     
     redirect_to("/posts/#{@post.id}")
