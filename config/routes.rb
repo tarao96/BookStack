@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   post '/posts/:id/destroy', to: 'posts#destroy'
  
   
-  get root 'static_pages#home'
+  root 'static_pages#home'
   get '/about', to: 'static_pages#about'
 end

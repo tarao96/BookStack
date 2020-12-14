@@ -4,13 +4,17 @@
       <!-- 検索拡張機能 -->
     <p>検索</p>
       <%= form_tag("/posts/index", method: :get) do %>
-          <%= text_field_tag :search, params[:search] %>
+          <%= text_field_tag :search, params[:search] %><br>
           <%= submit_tag 'Search', :name => nil %>
       <% end %>
       
      <%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       <% @posts.each do |post| %>
         <div class="posts-index-item">
+          <div class="post-left">
+            <img src="<%= "/post_images/#{post.image_url}" %>">
+          </div>
+          
           <div class="post-right">
             <div class="post-user-name">
               <%= link_to(post.user.name,"/users/#{post.user.id}") %>

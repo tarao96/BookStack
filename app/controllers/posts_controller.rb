@@ -27,8 +27,10 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
   end
   
+  
   def create
     @post = Post.new(
+      **post_params,
       content: params[:content],
       content2: params[:content2],
       content3: params[:content3],
@@ -38,6 +40,8 @@ class PostsController < ApplicationController
       actionplan: params[:actionplan],
       user_id: @current_user.id
       )
+      
+      
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
@@ -60,13 +64,21 @@ class PostsController < ApplicationController
     @post.review = params[:review]
     @post.actionplan = params[:actionplan]
     @post.save
-    
+    flash[:notice] = "投稿を更新しました"
     redirect_to("/posts/#{@post.id}")
   end
   
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
+  
+  private
+   
+   def post_params
+     params.require(:post).permit(:image)
+   end
+  
 end
