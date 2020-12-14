@@ -11,9 +11,6 @@
      <%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       <% @posts.each do |post| %>
         <div class="posts-index-item">
-          <div class="post-left">
-            <img src="<%= "/post_images/#{post.image_url}" %>">
-          </div>
           
           <div class="post-right">
             <div class="post-user-name">
