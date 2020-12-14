@@ -30,7 +30,6 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(
-      **post_params,
       content: params[:content],
       content2: params[:content2],
       content3: params[:content3],
@@ -75,10 +74,5 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
   
-  private
-   
-   def post_params
-     params.require(:post).permit(:image)
-   end
-  
+
 end

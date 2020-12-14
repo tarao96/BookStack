@@ -11,8 +11,6 @@ gem 'jbuilder',     '2.7.0'
 gem 'will_paginate', '3.1.6'
 gem 'chartkick'
 gem 'bcrypt'
-gem 'carrierwave'
-gem 'mini_magick'
 gem 'bootstrap'
 
 group :development, :test do
