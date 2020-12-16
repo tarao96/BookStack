@@ -11,21 +11,35 @@
      <%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       <% @posts.each do |post| %>
         <div class="posts-index-item">
+            
+       
+            <div class="post-left">
+              <img src="<%= "/user_images/#{post.user.image_name}" %>">
+              <div class="post-user-name-index">
+              <%= link_to(post.user.name,"/users/#{post.user.id}") %><br>
+            </div>
+          </div>
           
           <div class="post-right">
-            <div class="post-user-name">
-              <%= link_to(post.user.name,"/users/#{post.user.id}") %>
-            </div>
+            
            
+        
+            
+          
            <div class="title-container">
-             <p>タイトル</p>
+             
+             <div class="post-image">
+               <img src="<%="/post_images/#{post.post_image}" %>"  alt="サンプル" width="200" height="200" rotate="90">
+             </div>
+             
+             <h2>タイトル</h2>
             <div class="book-title-index">
               <%= link_to(post.content, "/posts/#{post.id}") %><br>
             </div>
            </div>
               
             <div class="heading-container">
-               <p>一言要約</p>
+               <h3>一言要約</h3>
               <div class="book-heading-index">
                <%= post.content2 %>
               </div>

@@ -1,11 +1,16 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/posts/create") do %>
+    <%= form_tag("/posts/create", {multipart: true}) do %>
     <div class="form">
       <div class="form-body">
         <h1>タイトル</h1><br>
         <input name="content">
+        
+        <div class="post-image-form">
+            <p>画像</p>
+            <input name="image_book" type="file">
+        </div>
         
         
         <h2>一言要約</h2>

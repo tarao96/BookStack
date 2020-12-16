@@ -2,19 +2,25 @@
   <div class="container">
     <div class="posts-show-item">
       
-      <div class="post-user-name">
-        <%= link_to(@user.name, "/users/#{@user.id}") %>
-      </div>
+       <div class="post-left">
+        <img src="<%= "/user_images/#{@post.user.image_name}" %>">
+        <div class="post-user-name-index">
+            <%= link_to(@post.user.name,"/users/#{@post.user.id}") %><br>
+        </div>
+        </div>
       
     <div class="title-container">
       <h1>タイトル</h1>
      <div class="book-title-show">
-          <%= @post.content %><br>
+          『<%= @post.content %>』<br>
      </div>
     </div>
-          
     
-    
+     <div class="post-image">
+        <p>画像</p>
+        <img src="<%="/post_images/#{@post.post_image}"%>" alt="サンプル" width="200" height="200" rotate="90">
+    </div>
+         
     <div class="heading-container">
       <h2>一言要約</h2>
      <div class="book-heading-show">
@@ -87,6 +93,7 @@
       <div class="post-menus">
         <%= link_to("編集","/posts/#{@post.id}/edit") %>
         <%= link_to("削除","/posts/#{@post.id}/destroy",{method: "post"}) %>
+        <%= link_to("コメント","/posts/#{@post.id}/comment") %>
       </div>
       <% end %>
       

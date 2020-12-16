@@ -37,15 +37,20 @@ class PostsController < ApplicationController
       content5: params[:content5],
       review: params[:review],
       actionplan: params[:actionplan],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      post_image: "default_post.jpg",
       )
-      
-      
     if @post.save
-      flash[:notice] = "投稿を作成しました"
-      redirect_to("/posts/index")
+     if params[:image_book]
+      @post.post_image = "#{@post.id}.jpg"
+      image_book = params[:image_book]
+      File.binwrite("public/post_images/#{@post.post_image}",image_book.read)
+     end
+     @post.save
+     flash[:notice] = "投稿を作成しました"
+     redirect_to("/posts/index")
     else
-      render("posts/new")
+     render("posts/new")
     end
   end
   
@@ -62,9 +67,16 @@ class PostsController < ApplicationController
     @post.content5 = params[:content5]
     @post.review = params[:review]
     @post.actionplan = params[:actionplan]
+  if @post.save
+    if params[:image_book]
+      @post.post_image = "#{@post.id}.jpg"
+      image_book = params[:image_book]
+      File.binwrite("public/post_images/#{@post.post_image}",image_book.read)
+    end
     @post.save
     flash[:notice] = "投稿を更新しました"
     redirect_to("/posts/#{@post.id}")
+   end
   end
   
   def destroy
