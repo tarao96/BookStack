@@ -303,10 +303,10 @@
     lodash "^4.17.11"
     lodash.flatten "^4.4.0"
 
-"@heroku-cli/plugin-pg-v5@^7.47.5":
-  version "7.47.5"
-  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-pg-v5/-/plugin-pg-v5-7.47.5.tgz#f930c6886ea4328179ff3940a1026ce205210d97"
-  integrity sha512-mBPh5g2VCZ5UzpaNBRkbRDaNx64mByOQg5dCVY81gmb97n3fmf9IP25o9hwunn9g5PkFx2KolKN0uY2ZocRBEQ==
+"@heroku-cli/plugin-pg-v5@^7.47.6":
+  version "7.47.6"
+  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-pg-v5/-/plugin-pg-v5-7.47.6.tgz#e7247edccfbdb9fa0489da9649e264f53a603324"
+  integrity sha512-f0vEOzzvonwKK/1FKWYF73K1bpgJAxsz83cGLiliMFBz8vRtfp62zjR16WeqVyIyuFUpAcI5hYhOAQJGKgxMHw==
   dependencies:
     "@heroku-cli/plugin-addons" "^1.2.29"
     bytes "^3.1.0"
@@ -401,10 +401,10 @@
     debug "^4.1.1"
     tslib "^1"
 
-"@heroku-cli/plugin-spaces@^7.43.0":
-  version "7.43.0"
-  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-spaces/-/plugin-spaces-7.43.0.tgz#1c3de45b80d0402348b65518e0889d9a73c9a6e9"
-  integrity sha512-6Y59rVu10ftQBrX4wj7/ZbPHdoCr4YxyUhcY4UVzNypjxVVMt43b95t2KXIZic0TOUCRValGFPFInTNSxXbNOQ==
+"@heroku-cli/plugin-spaces@^7.47.6":
+  version "7.47.6"
+  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-spaces/-/plugin-spaces-7.47.6.tgz#ed0beea620f56150bcaf9adfcda2335b7bf9b5bd"
+  integrity sha512-ij9WbSfQXv/vS5EqNm+sUiN27Osj7MU8Peoav/rm9mtL+skpWWzDEIk6s9AeNO7C4KsvMeHqfXFCZfU+K+AowA==
   dependencies:
     "@heroku-cli/command" "^8.4.0"
     "@heroku-cli/notifications" "^1.2.2"
