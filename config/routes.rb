@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   get '/posts/new', to: 'posts#new'
   post '/posts/create', to: 'posts#create'
   get '/posts/:id', to: 'posts#show'
+  post '/posts/comment', to: 'comments#create'
   get '/posts/:id/edit', to: 'posts#edit'
   post '/posts/:id/update', to: 'posts#update'
   post '/posts/:id/destroy', to: 'posts#destroy'
- 
   
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
