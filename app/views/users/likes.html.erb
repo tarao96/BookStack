@@ -14,7 +14,7 @@
     
      <ul class="user-tabs">
       <li><%= link_to("投稿","/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("いいね！","/users/#{@user.id}") %></li> 
+      <li class="active"><%= link_to("いいね！","/users/#{@user.id}/") %></li> 
     </ul>
     
     <% @likes.each do |like| %>
