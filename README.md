@@ -1,24 +1,43 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1.アプリケーションの概要
+　このアプリケーションは普段多くの書籍を読んでいる読書家の方をターゲットとした、読んだ本の内容を
+簡単にアウトプット＆記録できるサービスです。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2.使用技術
+　・開発環境： AWS
+　・言語：HTML, CSS, Ruby
+　・フレームワーク： Ruby on Rails 5.1.6
+　・データベース： SQlite3
+　・ツール： Git, Bitbucket
+　・本番環境： heroku
+　
+3.アプリケーションの機能
+　・新規登録
+　・ユーザーのログイン、ログアウト
+　・投稿
+　・画像投稿
+　・投稿一覧
+　・ユーザー一覧
+　・投稿検索
+　・いいね！
+　・ユーザーの編集
+　・投稿の編集、削除
+　・ユーザーの投稿、いいね！の表示
+　・ページネーション(will_paginate)
+　
+4.制作にあたって苦労した点
+　・herokuデプロイ時に投稿一覧、ユーザー詳細、ユーザー一覧ページだけなぜかエラーになってしまい、
+　エラー処理に丸二日も費やしてしまった。
+　しかし最終的には、Qiita等を参考に解決することができた。
+　自分は独学で勉強してきたので、エラー処理に時間がかかってしまうことが多かったが、その分
+　「エラー文を注意深く読み解く力」や「自分で調べて解決する力」が養われたと思っているので無駄だったとは思っていません。
+　
+5.学んでいること
+　・SQLをもっと深く学ぶ必要があることに気が付いて、現在はSQLを中心に学んでいます。
+　Ruby on Railsのフレームワークを使えばSQLに対する理解が浅くてもプロダクトを作れてしまっていたため、
+　現在は書籍等でSQLを学び、Railsの裏でどのようなSQL文が発行されているかの理解に努めています。
+　
+6.この先やってみたいこと
+　・実際にユーザーに使ってもらえるサービスに関わりたい。
+　もちろん、最初はプロダクト制作の中心メンバーにはなれないかもしれないが、何らかの形で少しでも生きたWebサービスに
+　関わっていたいです。
