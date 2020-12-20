@@ -4,10 +4,10 @@
     <% @users.each do |user| %>
      <div class="users-index-item">
        <div class="user-left">
-         <img src="<%="/user_images/#{user.image_name}" %>"  alt="サンプル" width="50" height="50">
+         <img src="<%="/user_images/#{@user.image_name}" %>"  alt="サンプル" width="50" height="50">
        </div>
        <div class="user-right">
-         <%= link_to(user.name, "/users/#{user.id}") %>
+         <%= link_to(@user.name, "/users/#{@user.id}") %>
        </div>
      </div>
     <% end %>

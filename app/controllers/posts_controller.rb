@@ -76,7 +76,7 @@ class PostsController < ApplicationController
     @post.save
     flash[:notice] = "投稿を更新しました"
     redirect_to("/posts/#{@post.id}")
-   end
+  end
   end
   
   def destroy
