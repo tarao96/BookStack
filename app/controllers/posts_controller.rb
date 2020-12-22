@@ -50,6 +50,7 @@ class PostsController < ApplicationController
      flash[:notice] = "投稿を作成しました"
      redirect_to("/posts/index")
     else
+     flash[:notice] = "「タイトル」と「一言要約」を入力してください"
      render("posts/new")
     end
   end
@@ -76,6 +77,9 @@ class PostsController < ApplicationController
     @post.save
     flash[:notice] = "投稿を更新しました"
     redirect_to("/posts/#{@post.id}")
+  else
+    flash[:notice] = "「タイトル」と「一言要約」を入力してください"
+     redirect_to("/posts/#{@post.id}/edit")
   end
   end
   

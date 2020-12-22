@@ -33,6 +33,7 @@ RSpec.describe Post, type: :system do
         fill_in 'content', with: nil
         click_button '保存'
         expect(current_path).to eq "/posts/1/edit"
+        expect(page).to have_content "「タイトル」と「一言要約」を入力してください"
       end
     end
     
@@ -50,6 +51,7 @@ RSpec.describe Post, type: :system do
     before do
        visit posts_new_path
        fill_in 'content', with: '2つ目の投稿'
+       fill_in 'content2', with: '2つ目の一言要約'
        click_button '投稿'
      end
      
@@ -58,6 +60,7 @@ RSpec.describe Post, type: :system do
         expect(current_path).to eq posts_index_path
         expect(page).to have_content '投稿を作成しました'
         expect(page).to have_content '2つ目の投稿'
+        expect(page).to have_content '2つ目の一言要約'
       end
     end
     
@@ -67,6 +70,7 @@ RSpec.describe Post, type: :system do
           click_on '2つ目の投稿'
           expect(current_path).to eq "/posts/2"
           expect(page).to have_content "2つ目の投稿"
+          expect(page).to have_content '2つ目の一言要約'
           expect(page).to have_selector("img[src$='default_post.jpg']")
         end
       end

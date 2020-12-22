@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   
   
   validates :content, {presence: true}
+  validates :content2, {presence: true}
   validates :user_id, {presence: true}
   
   def user
