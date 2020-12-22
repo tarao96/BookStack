@@ -28,10 +28,10 @@ group :development do
 end
 
 group :test do
- gem 'capybara',  '~> 2.13'
+ gem 'capybara',  ' 2.15'
  gem 'selenium-webdriver'
  gem 'webdrivers'
- gem 'rspec-rails', '3.7'
+ gem 'rspec-rails', '~> 3.7'
 end
 
 group :production do
