@@ -5,7 +5,7 @@
 
 2.使用技術
 　・開発環境： AWS
-　・言語：HTML, CSS, Ruby
+　・言語：HTML, CSS, Ruby 2.6.3
 　・フレームワーク： Ruby on Rails 5.1.6
 　・データベース： SQlite3
 　・ツール： Git, Bitbucket
