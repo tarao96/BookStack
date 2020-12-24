@@ -9,8 +9,8 @@
 　・フレームワーク： Ruby on Rails 5.1.6
 　・データベース： SQlite3
 　・ツール： Git, Bitbucket
-　・本番環境： heroku
-　・テスト： RSpec
+　・本番環境： heroku 7.47.5
+　・テスト： RSpec 3.7
 　
 3.アプリケーションの機能
 　・新規登録

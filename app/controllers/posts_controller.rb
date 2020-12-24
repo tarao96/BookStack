@@ -53,7 +53,7 @@ class PostsController < ApplicationController
        File.binwrite("public/post_document_images/#{@post.post_document_image}",document_image.read)
      end
        
-     @post.save
+    if @post.save
      flash[:notice] = "投稿を作成しました"
      redirect_to("/posts/index")
     else
