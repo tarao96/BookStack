@@ -53,7 +53,7 @@ class PostsController < ApplicationController
        File.binwrite("public/post_document_images/#{@post.post_document_image}",document_image.read)
      end
        
-    if @post.save
+     @post.save
      flash[:notice] = "投稿を作成しました"
      redirect_to("/posts/index")
     else
@@ -61,6 +61,7 @@ class PostsController < ApplicationController
      render("posts/new")
     end
   end
+    
   
   def edit
     @post = Post.find_by(id: params[:id])
@@ -75,19 +76,24 @@ class PostsController < ApplicationController
     @post.content5 = params[:content5]
     @post.review = params[:review]
     @post.actionplan = params[:actionplan]
-  if @post.save
+   if @post.save
     if params[:image_book]
       @post.post_image = "#{@post.id}.jpg"
       image_book = params[:image_book]
       File.binwrite("public/post_images/#{@post.post_image}",image_book.read)
     end
+    if params[:document_image]
+       @post.post_document_image = "#{@post.id}.jpg"
+       document_image = params[:document_image]
+       File.binwrite("public/post_document_images/#{@post.post_document_image}",document_image.read)
+    end
     @post.save
     flash[:notice] = "投稿を更新しました"
     redirect_to("/posts/#{@post.id}")
-  else
+   else
     flash[:notice] = "「タイトル」と「一言要約」を入力してください"
      redirect_to("/posts/#{@post.id}/edit")
-  end
+   end
   end
   
   def destroy
@@ -98,6 +104,5 @@ class PostsController < ApplicationController
   end
   
   
- end
 end
 
