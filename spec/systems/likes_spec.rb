@@ -4,7 +4,7 @@ RSpec.describe 'Likes', type: :system do
   let(:user) { FactoryBot.create(:user, name: 'test1', email: 'test1@example.com', image_name: 'default_user.jpg') }
   
   before do
-    FactoryBot.create(:post, content: '最初の投稿', post_image: 'default_post.jpg', user_id: 1, post_document: )
+    FactoryBot.create(:post, content: '最初の投稿', post_image: 'default_post.jpg', user_id: 1, post_document_image: '3.jpg')
     login(user)
   end
   
