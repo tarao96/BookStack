@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :system do
   describe '投稿一覧、投稿詳細、投稿編集、投稿削除' do
-     let(:user) { FactoryBot.create(:user, name: 'test', email: 'test@example.com', image_name: 'default_user.jpg') }
+     let(:user) { FactoryBot.create(:user, name: 'test', email: 'test2@example.com', image_name: 'default_user.jpg') }
     before do
       FactoryBot.create(:post, content: '最初の投稿', user_id: user.id, post_image: 'default_post.jpg', post_document_image: '3.jpg')
       login(user)
