@@ -8,7 +8,7 @@
         <input name="content" value="<%= @post.content %>">
         
         <div class="post-image-form">
-            <p>画像</p>
+            <p>表紙画像</p>
             <input name="image_book" type="file">
         </div>
         
@@ -27,6 +27,11 @@
          
           <p>Point3</p>
          <textarea name="content5"><%= @post.content5 %></textarea>
+         
+         <div class="post-image-form">
+            <p>図、ドキュメントなど</p>
+            <input name="document_image" type="file">
+        </div>
          
             <h3>レビュー</h3>
          <textarea name="review"><%= @post.review %></textarea>

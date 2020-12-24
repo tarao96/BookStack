@@ -38,7 +38,7 @@ class PostsController < ApplicationController
       review: params[:review],
       actionplan: params[:actionplan],
       user_id: @current_user.id,
-      post_image: "default_post.jpg",
+      post_image: "default_post.jpg"
       )
     if @post.save
      if params[:image_book]
@@ -46,6 +46,13 @@ class PostsController < ApplicationController
       image_book = params[:image_book]
       File.binwrite("public/post_images/#{@post.post_image}",image_book.read)
      end
+     
+     if params[:document_image]
+       @post.post_document_image = "#{@post.id}.jpg"
+       document_image = params[:document_image]
+       File.binwrite("public/post_document_images/#{@post.post_document_image}",document_image.read)
+     end
+       
      @post.save
      flash[:notice] = "投稿を作成しました"
      redirect_to("/posts/index")
