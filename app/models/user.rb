@@ -10,5 +10,4 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id).order(created_at: :desc)
   end
   
- 
 end

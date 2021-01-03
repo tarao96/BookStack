@@ -15,10 +15,11 @@
      <ul class="user-tabs">
       <li><%= link_to("投稿","/users/#{@user.id}") %></li>
       <li class="active"><%= link_to("いいね！","/users/#{@user.id}/") %></li> 
+      <li><%= link_to("私のアクションプラン","/users/#{@user.id}/actionplan") %></li>
     </ul>
     
-    <% @likes.each do |like| %>
-      
+     <% @likes.each do |like| %>
+     
       <% post = Post.find_by(id: like.post_id) %>
       
       <div class="posts-index-item">
@@ -29,7 +30,7 @@
           <%= link_to(post.content, "/posts/#{post.id}") %>
         </div>
       </div>
-
+    
     <% end %>
     
   </div>

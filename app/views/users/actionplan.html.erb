@@ -15,9 +15,9 @@
    
     
     <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿","/users/#{@user.id}") %></li>
+      <li><%= link_to("投稿","/users/#{@user.id}") %></li>
       <li><%= link_to("いいね！","/users/#{@user.id}/likes") %></li> 
-      <li><%= link_to("私のアクションプラン","/users/#{@user.id}/actionplan") %></li>
+      <li class="active"><%= link_to("私のアクションプラン","/users/#{@user.id}/actionplan") %></li>
     </ul>
    
       
@@ -28,6 +28,8 @@
           <%= link_to(post.user.name, "/users/#{post.user.id}") %>
         </div>
         <%= link_to(post.content,"/posts/#{post.id}") %>
+        <br>
+        <%= link_to(post.actionplan,"/posts/#{post.id}") %>
       </div>
     </div>
     <% end %>

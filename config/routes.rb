@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/users/index', to: 'users#index'
   get '/users/:id', to: 'users#show'
   get '/users/:id/likes', to: 'users#likes'
+  get '/users/:id/actionplan', to: 'users#actionplan'
   
   get '/posts/index', to: 'posts#index'
   get '/posts/new', to: 'posts#new'

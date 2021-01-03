@@ -83,6 +83,10 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id).order(created_at: :desc)
   end
   
+  def actionplan
+     @user = User.find_by(id: params[:id])
+  end
+  
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
