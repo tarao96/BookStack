@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
   
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    redirect_to "/"
+    flash[:notice] = "ユーザーを削除しました。"
+  end
+  
   def update
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
