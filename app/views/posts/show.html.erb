@@ -108,6 +108,9 @@
             </div>
       </div>
       <%= comment.text %>
+      <br>
+      <br>
+      <%= link_to "コメント削除", post_comment_path(@post, comment), method: :delete %>
       </div>
       <% end %>
   

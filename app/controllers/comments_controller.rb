@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     @comment.destroy
     flash[:notice] = "コメントを削除しました。"
-    redirect_to post_url
+    redirect_to "/posts/#{@post.id}"
   end
   
   private

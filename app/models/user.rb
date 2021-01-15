@@ -7,7 +7,7 @@ class User < ApplicationRecord
  
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :comme
+  has_many :comments
   
   def posts
     return Post.where(user_id: self.id).order(created_at: :desc)
