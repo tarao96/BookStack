@@ -88,18 +88,29 @@
         <%= @post.created_at %>
       </div>
       
-      
-      
-      
+      <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <%= f.text_field :text %>
+          <br>
+          <br>
+          <%= f.submit "コメントする", class: "btn btn-primary" %>
+      <% end %>
       
      </div>
      
      
-     
-     
-      
-      
-      
+      <% @comments.each do |comment| %>
+      <div class="posts-show-item">
+      <p>コメント</p>
+      <div class="post-left">
+              <img src="<%= "/user_images/#{comment.user_image_name}" %>">
+            <div class="post-user-name-index">
+              <%= link_to(comment.user.name,"/users/#{comment.user_id}") %><br>
+            </div>
+      </div>
+      <%= comment.text %>
+      </div>
+      <% end %>
+  
       <% if @post.user_id == @current_user.id %>
       <div class="post-menus">
         <%= link_to("編集","/posts/#{@post.id}/edit") %>
