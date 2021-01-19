@@ -24,7 +24,6 @@
          
        
          <!--Create Point-->
-         <%= nested_form_for @post do |f| %>
              <h3>Point</h3>
              <%= f.fields_for :points do |f| %>
                  <%= f.text_area :content6, class: 'form-controll' %>
