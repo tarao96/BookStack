@@ -4,18 +4,20 @@
     <%= nested_form_for @post do |f| %>
     <div class="form">
       <div class="form-body">
-        <%= f.label :content, 'タイトル' %><br>
+        <h3>タイトル</h3>
         <%= f.text_field :content, class: 'form-controll' %>
-        
+        <br>
+        <br>
         <div class="post-image-form">
-            <h3>表紙画像</h3><br>
+            <h3>表紙画像</h3>
             <%= f.file_field :post_image %>
         </div>
+        <br>
         
-        
-        <%= f.label :content2, '一言要約' %><br>
+        <h3>一言要約</h3>
         <%= f.text_field :content2, class: 'form-controll' %>
-         
+        <br>
+        <br>
          
          <div class="point-heading">
             <h2><要点整理></h2>
@@ -24,25 +26,25 @@
        
          <!--Create Point-->
          <%= nested_form_for @post do |f| %>
-             <p>Point</p>
+             <h3>Point</h3>
              <%= f.fields_for :points do |f| %>
                  <%= f.text_area :content6, class: 'form-controll' %>
                  <%= f.link_to_remove "Delete Point" %>
              <% end %>
                  <%= f.link_to_add "Create Point", :points, class: 'btn btn-primary'%>
          <% end %>
-         
+         <br>
          <div class="post-image-form">
-            <h3>図、ドキュメントなど</h3><br>
+            <h3>図、ドキュメントなど</h3>
             <%= f.file_field :post_document_image, class: 'form-controll' %>
         </div>
-         
-         <%= f.label :review, 'レビュー' %><br>
+        <br>
+         <h3>レビュー</h3>
          <%= f.text_area :review, class: 'form-controll' %>
-         
-         <%= f.label :actionplan, 'アクションプラン' %><br>
+         <br>
+         <h3>私のアクションプラン</h3>
          <%= f.text_area :actionplan, class: 'form-controll' %>
-         
+         <br>
           
         <%= f.submit '投稿する', class: 'btn btn-primary' %>
       </div>
