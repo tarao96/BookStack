@@ -16,10 +16,14 @@
      </div>
     </div>
     
-     <div class="post-image">
+    
         <p>表紙画像</p>
-        <img src="<%="/post_images/#{@post.post_image}"%>" alt="サンプル" width="200" height="200" rotate="90">
-    </div>
+        <% if @post.post_image? %>
+          <%= image_tag @post.post_image.url %>
+        <% else %>
+          <%= image_tag "/post_images/default_post.jpg", class: 'sized' %>
+        <% end %>
+    
          
     <div class="heading-container">
       <h2>一言要約</h2>
@@ -29,29 +33,20 @@
     </div>
      
     <div class="heading-container-point">
-      <p>Point1</p>
-     <div class="book-point-show">
-        <%= simple_format(@post.content3) %>
-     </div>
-    </div>
      
-    <div class="heading-container-point">
-       <p>Point2</p>
-     <div class="book-point-show">
-        <%= simple_format(@post.content4) %>
-     </div>
-    </div>
-     
-    <div class="heading-container-point">
-        <p>Point3</p>
-     <div class="book-point-show">
-        <%= simple_format(@post.content5) %>
-     </div>
-    </div>
+    
+    <% @post.points.each.with_index(1) do |point, i| %>
+        <h3>Point<%= i %></h3>
+        <%= simple_format(point.content6) %>
+    <% end %>
     
     <div class="post-image">
-        <p>図、ドキュメントなど</p>
-        <img src="<%="/post_document_images/#{@post.post_document_image}"%>" alt="図、ドキュメントなどは空白です" width="400" height="400" rotate="90">
+        <h3>図、ドキュメントなど</h3>
+        <% if @post.post_document_image? %>
+          <%= image_tag @post.post_document_image.url %>
+        <% else %>
+          <%= "図、ドキュメントなどは空白です。" %>
+        <% end %>
     </div>
     
     <div class="heading-container-point">
@@ -68,7 +63,7 @@
      </div>
     </div>
      
-     <% if Like.find_by(user_id:@current_user.id, post_id:@post.id) %>
+     <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
       
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
         <span class="fa fa-heart like-btn-unlike"></span>
@@ -117,7 +112,7 @@
       <% if @post.user_id == @current_user.id %>
       <div class="post-menus">
         <%= link_to("編集","/posts/#{@post.id}/edit") %>
-        <%= link_to("削除","/posts/#{@post.id}/destroy",{method: "post"}) %>
+        <%= link_to("削除","/posts/#{@post.id}",{method: "delete"}) %>
       </div>
       <% end %>
       

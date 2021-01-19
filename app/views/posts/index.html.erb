@@ -28,10 +28,14 @@
           
            <div class="title-container">
              
-             <div class="post-image">
+            
                <p>表紙画像</p>
-               <img src="<%="/post_images/#{post.post_image}" %>"  alt="サンプル" width="200" height="200" rotate="90">
-             </div>
+               <% if post.post_image? %>
+                <%= image_tag post.post_image.url %>
+               <% else %>
+                <%= image_tag "/post_images/default_post.jpg", class: 'sized' %>
+               <% end %>
+             
              
              <h2>タイトル</h2>
             <div class="book-title-index">

@@ -1,47 +1,50 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag(posts_path, {multipart: true}) do %>
+    <%= nested_form_for @post do |f| %>
     <div class="form">
       <div class="form-body">
-        <h1>タイトル</h1><br>
-        <input name="content">
+        <%= f.label :content, 'タイトル' %><br>
+        <%= f.text_field :content, class: 'form-controll' %>
         
         <div class="post-image-form">
-            <p>表紙画像</p>
-            <input name="image_book" type="file">
+            <h3>表紙画像</h3><br>
+            <%= f.file_field :post_image %>
         </div>
         
         
-        <h2>一言要約</h2>
-         <textarea name="content2"><%= @post.content2 %></textarea>
+        <%= f.label :content2, '一言要約' %><br>
+        <%= f.text_field :content2, class: 'form-controll' %>
+         
          
          <div class="point-heading">
             <h2><要点整理></h2>
          </div>
          
-          <p>Point1</p>
-         <textarea name="content3"><%= @post.content3 %></textarea>
-         
-           <p>Point2</p>
-         <textarea name="content4"><%= @post.content4 %></textarea>
-         
-           <p>Point3</p>
-         <textarea name="content5"><%= @post.content5 %></textarea>
+       
+         <!--Create Point-->
+         <%= nested_form_for @post do |f| %>
+             <p>Point</p>
+             <%= f.fields_for :points do |f| %>
+                 <%= f.text_area :content6, class: 'form-controll' %>
+                 <%= f.link_to_remove "Delete Point" %>
+             <% end %>
+                 <%= f.link_to_add "Create Point", :points, class: 'btn btn-primary'%>
+         <% end %>
          
          <div class="post-image-form">
-            <p>図、ドキュメントなど</p>
-            <input name="document_image" type="file">
+            <h3>図、ドキュメントなど</h3><br>
+            <%= f.file_field :post_document_image, class: 'form-controll' %>
         </div>
          
-           <h3>レビュー</h3>
-         <textarea name="review"><%= @post.review %></textarea>
+         <%= f.label :review, 'レビュー' %><br>
+         <%= f.text_area :review, class: 'form-controll' %>
          
-           <h3>私のアクションプラン</h3>
-         <textarea name="actionplan"><%= @post.actionplan %></textarea>
+         <%= f.label :actionplan, 'アクションプラン' %><br>
+         <%= f.text_area :actionplan, class: 'form-controll' %>
          
           
-        <input type="submit" value="投稿">
+        <%= f.submit '投稿する', class: 'btn btn-primary' %>
       </div>
     </div>
     <% end %>

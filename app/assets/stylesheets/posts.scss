@@ -8,7 +8,6 @@
   border-style: solid;
   border-width: 1px;
   border-color: #444444;
- 
 }
 
 .post-user-name a {
@@ -76,6 +75,11 @@
 
 .post_heading {
   float: left;
+}
+
+img.sized {
+  width: 60%;
+  height: 60%;
 }
 /* posts/new ========================*/
 .posts-new textarea {
