@@ -6,7 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
   </head>
@@ -25,13 +24,13 @@
           <%= link_to(current_user.name,"/users/#{current_user.id}") %>
          </li>
          <li>
-          <%= link_to("投稿一覧", posts_url) %>
+          <%= link_to("投稿一覧", "/posts") %>
          </li>
          <li>
-           <%= link_to("新規投稿", new_post_url) %>
+           <%= link_to("新規投稿", "/posts/new") %>
          </li>
          <li>
-          <%= link_to("ユーザー一覧", users_url) %>
+          <%= link_to("ユーザー一覧", "/users") %>
          </li>
          <li>
           <%= link_to("ログアウト","/logout",{method: :post}) %>
@@ -42,7 +41,7 @@
            <%= link_to("BookStackとは","/about") %>
          </li>
          <li>
-           <%= link_to("新規登録", new_user_path) %>
+           <%= link_to("新規登録", "/users/new") %>
          </li>
          <li>
             <%= link_to("ログイン","/login") %>

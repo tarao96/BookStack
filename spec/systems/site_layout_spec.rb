@@ -14,7 +14,7 @@ RSpec.describe 'SiteLayouts', type: :system do
     
     it 'contains signup link' do
       visit root_path
-      expect(page).to have_link '新規登録', href: signup_path
+      expect(page).to have_link '新規登録', href: "/users/new"
     end
   end
   
@@ -30,15 +30,15 @@ RSpec.describe 'SiteLayouts', type: :system do
     end
     
     it 'contains posts_index link' do
-      expect(page).to have_link '投稿一覧', href: posts_index_path
+      expect(page).to have_link '投稿一覧', href: "/posts"
     end
     
     it 'contains posts_new link' do
-      expect(page).to have_link '新規投稿', href: posts_new_path
+      expect(page).to have_link '新規投稿', href: "/posts/new"
     end
     
     it 'contains users_index link' do
-      expect(page).to have_link 'ユーザー一覧', href: "/users/index"
+      expect(page).to have_link 'ユーザー一覧', href: "/users"
     end
     
     it 'contains logout link' do

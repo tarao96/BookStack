@@ -3,10 +3,12 @@
     <div class="form-heading">新規ユーザー登録</div>
     <div class="form users-form">
       <div class="form-body">
+        <% if @user.errors.any? %>
         <% @user.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
           </div>
+        <% end %>
         <% end %>
         
         
