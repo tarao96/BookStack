@@ -16,12 +16,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      image_name: "default_user.jpg"
-      )
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
@@ -44,21 +39,12 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-   if @user.save
-    if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
-    end
-    
-      @user.save
+    if @user.update(user_params)
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
-   else
-      render("users/edit")
-   end
+    else
+      render("users/#{@user.id}/edit")
+    end
   end
 
   
@@ -97,8 +83,24 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
+      redirect_to("/posts")
     end
+  end
+  
+  def follows
+    @user = User.find(params[:id])
+    @users = @user.followings
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+  end
+    
+  
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :image_name)
   end
 end
   

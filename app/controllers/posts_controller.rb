@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id
       flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
+      redirect_to("/posts")
     end
   end
   
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def show
     @user = @post.user
     @comment = Comment.find_by(id: params[:id])
+    @like = Like.new
     @likes_count = Like.where(post_id: @post.id).count
     @comment = Comment.new
     @comments = @post.comments

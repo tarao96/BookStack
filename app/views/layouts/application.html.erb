@@ -31,7 +31,7 @@
            <%= link_to("新規投稿", new_post_url) %>
          </li>
          <li>
-          <%= link_to("ユーザー一覧", "/users/index") %>
+          <%= link_to("ユーザー一覧", users_url) %>
          </li>
          <li>
           <%= link_to("ログアウト","/logout",{method: :post}) %>
@@ -42,7 +42,7 @@
            <%= link_to("BookStackとは","/about") %>
          </li>
          <li>
-           <%= link_to("新規登録","/signup") %>
+           <%= link_to("新規登録", new_user_path) %>
          </li>
          <li>
             <%= link_to("ログイン","/login") %>

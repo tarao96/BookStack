@@ -1,12 +1,16 @@
 <div class="main user-show">
   <div class="container">
      <div class="user">
-      <img src="<%="/user_images/#{@user.image_name}" %>" alt="サンプル" width="100" height="100">
-      <h2><%= @user.name %></h2>
+    　<h2><%= @user.name %></h2>
+     <% if @user.image_name? %>
+      <%= image_tag @user.image_name.url %>
+     <% else %>
+      <%= image_tag "/user_images/default_user.jpg", class: 'user_sized' %>
+     <% end %>
       <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
       <%= link_to("編集","/users/#{@user.id}/edit") %>
-      <%= link_to("削除","/users/#{@user.id}/destroy", {method: "post"}) %>
+      <%= link_to("削除","/users/#{@user.id}", {method: "delete"}) %>
       <% end %>
     </div>
     
@@ -16,8 +20,10 @@
     
      <ul class="user-tabs">
       <li><%= link_to("投稿","/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("いいね！","/users/#{@user.id}/") %></li> 
+      <li class="active"><%= link_to("いいね！","/users/#{@user.id}/likes") %></li> 
       <li><%= link_to("私のアクションプラン","/users/#{@user.id}/actionplan") %></li>
+      <li><%= link_to "フォロー", follows_user_path(@user.id) %></li>
+      <li><%= link_to "フォロワー", followers_user_path(@user.id) %></li>
     </ul>
     
      <% @likes.each do |like| %>
