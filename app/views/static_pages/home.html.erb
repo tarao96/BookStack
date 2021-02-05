@@ -1,30 +1,104 @@
+
+  
 <div class="main top-main">
-  <div class="top-message">
+  <div class="container">
+   <div class="top-message">
     <h2>本で、世界は広がる</h2>
     <p>BookStackは、読んだ本の内容をできるだけ気軽にアウトプットしたい人にピッタリなアプリです。</p>
+    <%= link_to("新規登録はこちら", new_user_path, {class: "btn signup signup-show"}) %>
+   </div>
   </div>
+</div>
+
+<div class="main-contents">
+<div class="lesson-wrapper">
+ <div class="container">
   <div class="lessons">
-    <div class="lesson">
-      <div class="lesson-icon">
-         <img class="top-icon" src="/メモ帳のフリーアイコン素材.png">
+    <ul>
+    <li class="lesson-item">
+      <div class="lesson">
+        <div class="text-contents">
+        <h2>読んだ本を記録</h2>
+        <p><span class="marker-green">今まで読んできた本の内容を記録として残しておくことができます。
+           ユーザー詳細ページでは、今まで記録した本の冊数もわかるので、
+           モチベーションもアップします！</span>
+           </p>
+        </div>
+        <img class="top-icon " id="lesson_image1" src="/lesson_images/lesson1.jpg">
       </div>
-        <h1 class="text-heading">読んだ本を記録</h1>
-        <p class="text-contents">今まで読んできた本の内容を記録として残しておくことができます。</p>
-    </div>
+    </li>
+    
+    <li class="lesson-item">
     <div class="lesson">
-      <div class="lesson-icon">
-          <img class="top-icon" src="/本の無料アイコン素材.png">
+      <div class="text-contents">
+        <h2>読書後の要約</h2>
+        <p><span class="marker-green">忘れないうちに短く要約することで、記憶に定着させましょう。
+           要約では、その本の内容を一言にまとめた「一言要約」と各章の要点をできる限り短くまとめていこう！</span>
+           </p>
       </div>
-        <h1 class="text-heading">読書後の要約</h1>
-        <p class="text-contents">本は読み終わったら終わりではありません。忘れないうちに短く要約することで、記憶に定着させましょう。</p>
+        <img class="top-icon" id="lesson_image2" src="/lesson_images/lesson2.jpg">
     </div>
-    <div class="lesson">
-      <div class="lesson-icon">
-          <img class="top-icon" src="/本棚アイコン.png">
+    </li>
+    
+    <li class="lesson-item">
+      <div class="lesson">
+        <div class="text-contents">
+        <h2>他の人の要約も</h2>
+        <p><span class="marker-green">気になる本も、最近話題のあの本も、他の人の要約でチラ見しておこう。
+           書籍を購入する前に、投稿一覧から目当ての本の内容を軽く見ておこう！
+           自分にとってのハズレ本を選んでしまう確率を減らすことができます。</span>
+           </p>
+        </div>
+        <img class="top-icon" id="lesson_image3" src="/lesson_images/lesson3.jpg">
       </div>
-        <h1 class="text-heading">他の人の要約も</h1>
-        <p class="text-contents">気になる本も、最近話題のあの本も、他の人の要約でチラ見しておこう。</p>
-    </div>
+    </li>
+    </ul>
   </div>
- 
+</div>
+</div>
+    
+    <div class="function-wrapper">
+      <div class="container">
+        <div class="heading">
+          <h2>機能紹介</h2>
+        </div>
+        <ul class="function">
+        <li class="function-item">
+          <div class="function-text-contents">
+            <h3>いいね！</h3>
+            <p>気になった本にいいね！をしておくと、ユーザーページで確認することができます。
+               <br>ブックマークの代わりにどうぞ。</p>
+            <img class="function_image" src="/function_images/いいね.jpg">
+          </div>
+        </li>
+        <li class="function-item">
+          <div class="function-text-contents">
+            <h3>フォロー</h3>
+            <p>自分と趣味が近いユーザーをフォローしておこう！<br>
+               その人の読んだ本をチェックすれば、きっと素晴らしい本に出会えるはず！</p>
+            <img class="function_image" src="/function_images/ハート.jpg">
+          </div>
+        </li>
+        <li class="function-item">
+          <div class="function-text-contents">
+            <h3>コメント</h3>
+            <p>きれいに要約されている本があればコメントしていこう！<br>
+               お互いモチベーションをアップしてWin-Winな場にしていこう！</p>
+            <img class="function_image" src="/function_images/コメント.jpg">
+          </div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="message-wrapper">
+      <div class="container">
+        <div class="message-contents">
+        <div class="heading">
+          <h2>さぁ、あなたもBookStackで読書ライフを始めてみませんか？</h2>
+        </div>
+        <%= link_to("さっそくBookStackを使ってみる", new_user_path, {class: "btn message signup-show"}) %>
+        </div>
+      </div>
+    </div>
 </div>

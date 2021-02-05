@@ -58,8 +58,28 @@ img.user_sized {
   height: 100px;
 }
 
+.user_name {
+  font-size: 22px;
+}
+
 /* users/new, users/edit ======================== */
 .users-form input {
   margin-bottom: 15px;
 }
+
+/* users/index ===================================*/
+.users-index-item {
+  box-shadow:  0 6px 12px #c1ced7;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+
+.user-right {
+  margin-bottom: 15px;
+}
+
+
+
+
 

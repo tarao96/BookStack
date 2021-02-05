@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user, optional: true
   has_many :likes, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :points, dependent: :destroy
   accepts_nested_attributes_for :points, allow_destroy: true
   

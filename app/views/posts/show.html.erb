@@ -88,7 +88,7 @@
       </div>
       
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
-          <%= f.text_field :text %>
+          <%= f.text_area :text, class: 'form-control' %>
           <br>
           <br>
           <%= f.submit "コメントする", class: "btn btn-primary" %>

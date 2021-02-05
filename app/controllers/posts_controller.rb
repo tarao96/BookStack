@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   
   
   def index
-    @posts = Post.all.paginate(page: params[:page],per_page:5).order(created_at: :desc).search(params[:search])
+    @posts = Post.all.paginate(page: params[:page],per_page:5).order(created_at: :desc).search(params[:search]).includes(:user)
   end
   
   
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @like = Like.new
     @likes_count = Like.where(post_id: @post.id).count
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.includes(:post)
     @points = @post.points
   end
   
