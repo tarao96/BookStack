@@ -1,0 +1,2 @@
+// #like_buttonの部分のHTMLだけ、renderで部分的に更新
+$('.like_button').html("<%= j(render partial: 'likes/like', locals: { post: @post } ) %>");

@@ -14,13 +14,13 @@ RSpec.describe User, type: :system do
             #ユーザー新規登録画面へ遷移
             visit new_user_path
             #ユーザー名にtestと入力
-            fill_in 'user[name]', with: 'test'
+            fill_in 'name', with: 'test'
             #メールアドレスにtest@example.comと入力
-            fill_in 'user[email]', with: 'test@example.com'
+            fill_in 'email', with: 'test@example.com'
             #パスワードにpasswordと入力
-            fill_in 'user[password]', with: 'password'
+            fill_in 'password', with: 'password'
             #ログインと記述のあるsubmitをクリック
-            click_button '新規登録する'
+            click_button '新規登録'
             #users_index_pathに遷移することを期待する
             expect(current_path).to eq "/users/1"
             #遷移されたページに'ユーザー登録が完了しました'の文字列があることを期待する
@@ -35,13 +35,13 @@ RSpec.describe User, type: :system do
                 #ユーザー新規登録画面へ遷移
               visit new_user_path
               #ユーザー名にtestと入力
-              fill_in 'user[name]', with: 'test'
+              fill_in 'name', with: 'test'
               #メールアドレスにtest@example.comと入力
-              fill_in 'user[email]', with: nil
+              fill_in 'email', with: nil
               #パスワードにpasswordと入力
-              fill_in 'user[password]', with: 'password'
+              fill_in 'password', with: 'password'
               #ログインと記述のあるsubmitをクリック
-              click_button '新規登録する'
+              click_button '新規登録'
               #users_index_pathに遷移することを期待する
               expect(current_path).to eq "/users"
               #遷移されたページに'Email can't be blank'の文字列があることを期待する
@@ -55,13 +55,13 @@ RSpec.describe User, type: :system do
                 #ユーザー新規登録画面へ遷移
               visit new_user_path
               #ユーザー名にtestと入力
-              fill_in 'user[name]', with: 'test'
+              fill_in 'name', with: 'test'
               #メールアドレスにtest@example.comと入力
-              fill_in 'user[email]', with: user.email
+              fill_in 'email', with: user.email
               #パスワードにpasswordと入力
-              fill_in 'user[password]', with: 'password'
+              fill_in 'password', with: 'password'
               #ログインと記述のあるsubmitをクリック
-              click_button '新規登録する'
+              click_button '新規登録'
               #users_index_pathに遷移することを期待する
               expect(current_path).to eq "/users"
               #遷移されたページに'Email has already been taken'の文字列があることを期待する

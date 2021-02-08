@@ -67,21 +67,9 @@
      </div>
     </div>
      
-     <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-      
-        <%= link_to(post_like_path(@post), {method: "delete"}) do %>
-        <span class="fa fa-heart like-btn-unlike"></span>
-        <% end %>
-        
-      <% else %>
-      
-        <%= link_to(post_likes_path(@post), {method: "post"}) do %>
-        <span class="fa fa-heart like-btn"></span>
-        <% end %>
-        
-      <% end %>
-      
-      <%= @likes_count %>
+     <div class="like_button">
+         <%= render partial: 'likes/like', locals: { post: @post } %>
+     </div>
      
       <div class="post-time">
         <%= @post.created_at %>

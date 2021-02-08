@@ -13,11 +13,11 @@
         <!-- フォームの送信先を指定 -->
         <%= form_for(@user, url: user_path(@user)) do |f| %>
           <%= f.label :ユーザー名 %><br>
-          <%= f.text_field :name, class: 'form-controll' %><br>
+          <%= f.text_field :name, class: 'form-control' %><br>
           <%= f.label :ユーザー画像 %><br>
-          <%= f.file_field :image_name, class: 'form-controll' %><br>
+          <%= f.file_field :image_name %><br>
           <%= f.label :メールアドレス %><br>
-          <%= f.text_field :email, class: 'form-controll' %><br>
+          <%= f.text_field :email, class: 'form-control' %><br>
           <%= f.submit '更新する', class: 'btn btn-primary' %>
         <% end %>
       </div>

@@ -35,4 +35,8 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id).order(created_at: :desc)
   end
   
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
+  
 end
