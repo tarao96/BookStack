@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :comment do
-    text { 'テストコメント' }
+  factory :like do
     association :user
     association :post
   end

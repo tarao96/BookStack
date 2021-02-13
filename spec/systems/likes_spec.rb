@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Likes', type: :system do
-  let(:user) { FactoryBot.create(:user, name: 'test', email: 'test3@example.com', image_name: 'default_user.jpg') }
   
   before do
+    FactoryBot.create(:user, name: 'test', email: 'test3@example.com', image_name: 'default_user.jpg', password: 'password')
     FactoryBot.create(:post, content: '最初の投稿', post_image: 'default_post.jpg', user_id: 1, post_document_image: '3.jpg')
-    login(user)
+    visit "/login"
+    fill_in 'email', with: 'test3@example.com'
+    fill_in 'password', with: 'password'
+    click_button 'ログイン'
   end
   
   describe 'testがログインしているとき' do

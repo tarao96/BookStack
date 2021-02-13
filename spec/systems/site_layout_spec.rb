@@ -19,10 +19,12 @@ RSpec.describe 'SiteLayouts', type: :system do
   end
   
   describe "ログイン後" do
-    let(:user) { FactoryBot.create(:user, name: 'test', email: 'test1@example.com', image_name: 'default_user.jpg', id: 1) }
     before do
-      login(user)
-      visit root_path
+      FactoryBot.create(:user, name: 'test', email: 'test1@example.com', image_name: 'default_user.jpg', password: 'password', id: 1)
+      visit "/login"
+      fill_in 'email', with: 'test1@example.com'
+      fill_in 'password', with: 'password'
+      click_button 'ログイン'
     end
     
     it 'contains user_name link' do

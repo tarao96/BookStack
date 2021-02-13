@@ -8,6 +8,7 @@ RSpec.describe Post, type: :model do
     user_id: 1
     )}
     
+  
   describe 'Post' do
     it 'should be valid' do
       expect(post).to be_valid

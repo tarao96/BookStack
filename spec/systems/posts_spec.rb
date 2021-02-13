@@ -1,13 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :system do
-  describe '投稿一覧、投稿詳細、投稿編集、投稿削除' do
-     let(:user) { FactoryBot.create(:user, name: 'test', email: 'test2@example.com', image_name: 'default_user.jpg') }
-    before do
-      FactoryBot.create(:post, content: '最初の投稿', user_id: user.id, post_image: 'default_post.jpg', post_document_image: 'test.jpg')
-      login(user)
+  
+  before do
+      FactoryBot.create(:user, name: 'test', email: 'test@example.com', image_name: 'default_user.jpg')
+      FactoryBot.create(:post, content: '最初の投稿', user_id: 1, post_image: 'default_post.jpg', post_document_image: 'test.jpg')
+      visit "/login"
+      fill_in 'email', with: 'test@example.com'
+      fill_in 'password', with: 'password'
+      click_button 'ログイン'
     end
     
+  describe '投稿一覧、投稿詳細、投稿編集、投稿削除' do
     context '投稿一覧' do
       it 'testが作成した投稿が投稿一覧に表示される' do
         visit posts_path
@@ -50,13 +54,13 @@ RSpec.describe Post, type: :system do
   describe '新規投稿' do
     before do
       visit new_post_path
-      fill_in 'post[content]', with: '2つ目の投稿'
-      fill_in 'post[content2]', with: '2つ目の一言要約'
-      click_button '投稿'
     end
      
       context '新規投稿でタイトルを入力したとき' do
       it '新規投稿が成功する' do
+        fill_in 'post[content]', with: '2つ目の投稿'
+        fill_in 'post[content2]', with: '2つ目の一言要約'
+        click_button '投稿'
         expect(current_path).to eq posts_path
         expect(page).to have_content '投稿を作成しました'
         expect(page).to have_content '2つ目の投稿'
@@ -66,6 +70,9 @@ RSpec.describe Post, type: :system do
     
       context '投稿一覧でタイトルをクリックしたとき' do
         it '投稿詳細ページが表示される' do
+          fill_in 'post[content]', with: '2つ目の投稿'
+          fill_in 'post[content2]', with: '2つ目の一言要約'
+          click_button '投稿'
           visit posts_path
           click_on '2つ目の投稿'
           expect(current_path).to eq "/posts/2"
@@ -74,7 +81,13 @@ RSpec.describe Post, type: :system do
           expect(page).to have_selector("img[src$='default_post.jpg']")
         end
       end
+      
+      context 'Create Point' do
+        it 'Create Pointを押下するとtextareaの入力フォームが生成する' do
+          click_on 'Create Point'
+          expect(all('.form-control').size).to eq(6)
+        end
      end
-    
+    end
   end
 end

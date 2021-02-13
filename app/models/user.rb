@@ -7,7 +7,7 @@ class User < ApplicationRecord
   mount_uploader :image_name, ImageNameUploader
  
   has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :likes
   has_many :comments
   
   # ========自分がフォローしているユーザーとの関連 =========== #

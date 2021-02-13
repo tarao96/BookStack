@@ -85,7 +85,14 @@ RSpec.describe User, type: :system do
                 end
               end
               
-              
+              context 'ユーザー削除' do
+                it 'ユーザーの削除が成功' do
+                  visit "/users/1"
+                  click_link '削除'
+                  expect(current_path).to eq "/"
+                  expect(page).to have_content "ユーザーを削除しました。"
+                end
+              end
               
               context 'ログアウト' do
                 it 'ログアウトが成功' do
